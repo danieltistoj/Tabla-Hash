@@ -61,13 +61,18 @@ public class Requerimiento {
        return esPrimo;
 
     }
-    
+    //esta funcion retorna el valor "m" que se utiliza en la ecuacion H(k) = k % m. 
     public int RetornarM(int sizeTabla){
         int numero_aux = 0, numM = 0;
         while(numero_aux == 0){
-            if((PotenciaDeDos(sizeTabla)&&PotenciaDeDiez(sizeTabla)) && NumeroPrimo(sizeTabla)){
-                numM = sizeTabla;
-                numero_aux = 1;
+            if(PotenciaDeDos(sizeTabla) == false){ // se ve que no sea potencia de dos. 
+                if(PotenciaDeDiez(sizeTabla) == false){// se ve que no sea potencia de diez.
+                    if(NumeroPrimo(sizeTabla)){// se ve que si sea un numero primo.
+                        numM = sizeTabla;
+                        numero_aux = 1;
+                    }
+                }
+                
             }
             sizeTabla++;
             

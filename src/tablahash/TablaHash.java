@@ -15,7 +15,8 @@ public class TablaHash {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Tabla tablaHash = new Tabla(1,20);
+        System.out.println(tablaHash.getNumM());
             
     }
     

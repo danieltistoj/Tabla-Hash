@@ -17,15 +17,36 @@ public class Tabla {
     
     * La tabla sera un array de lista debido a las colisiones, ya que le programa es un hashin abierto o encademanito separado. 
     
+    *La clase requerimiento ve si un numero es potencia de dos, es potencia de diez o es primo. 
+    
     */
     private Lista TablaHash[];
     private int FuncionHash, numM;
+    private Requerimiento requerimiento;
 
     public Tabla(int FuncionHash,int TamTabla) {
         this.FuncionHash = FuncionHash;
         this.TablaHash = new Lista[TamTabla];
-        
+        this.requerimiento = new Requerimiento();
+        this.numM = requerimiento.RetornarM(TamTabla);
     }
+
+    public int getFuncionHash() {
+        return FuncionHash;
+    }
+
+    public void setFuncionHash(int FuncionHash) {
+        this.FuncionHash = FuncionHash;
+    }
+
+    public int getNumM() {
+        return numM;
+    }
+
+    public void setNumM(int numM) {
+        this.numM = numM;
+    }
+  
     
     
     
