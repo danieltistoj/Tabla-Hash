@@ -62,4 +62,18 @@ public class Requerimiento {
 
     }
     
+    public int RetornarM(int sizeTabla){
+        int numero_aux = 0, numM = 0;
+        while(numero_aux == 0){
+            if((PotenciaDeDos(sizeTabla)&&PotenciaDeDiez(sizeTabla)) && NumeroPrimo(sizeTabla)){
+                numM = sizeTabla;
+                numero_aux = 1;
+            }
+            sizeTabla++;
+            
+        }
+        
+        return numM;
+    }
+    
 }
