@@ -12,6 +12,7 @@ package tablahash;
 public class Lista {
     private Nodo tope, fondo;
     private int numValores = 0;
+    private String cadena = "";
     
     public void InsertarFondo(String nombre, String correo, String organizacion, String comentario, int telefono){
         Nodo nuevo = new Nodo(nombre,correo,organizacion,comentario,telefono);
@@ -86,17 +87,31 @@ public class Lista {
     
     
     //mostrar los valores de la lista 
-    private void MostrarValor(Nodo nodo_actual){
+    private void MostrarValor(Nodo nodo_actual,int conta){
         if(nodo_actual!=null){
-            System.out.print(nodo_actual.getTelefono()+", ");
-            MostrarValor(nodo_actual.getSiguiente());
+            if(conta == numValores){
+                cadena += nodo_actual.getTelefono()+" --> null";
+            }
+            else{
+                if(conta == 1){
+                  cadena += "[ "+nodo_actual.getTelefono()+" ]"+" --> "; 
+                }
+                else{
+                  cadena += nodo_actual.getTelefono()+" --> "; 
+                }
+              
+            }
+            conta++;
+            MostrarValor(nodo_actual.getSiguiente(),conta);
         }
         
     }
-    public void Mostrar(){
+    public String Mostrar(){
+        cadena ="";
         Nodo nodo_actual = tope;
-        MostrarValor(nodo_actual);
-        
+        int conta = 1;
+        MostrarValor(nodo_actual,conta );
+        return cadena;
     }
 
     public Nodo getTope() {
