@@ -36,8 +36,9 @@ public class TablaHash {
         System.out.println(tablaHash.getCadena());
         System.out.println("Buscar: 54318043. "+tablaHash.Buscar(54318043));
         System.out.println(tablaHash.getCadena());
-        System.out.println(tablaHash.Eliminar(54318043));
-        System.out.println(tablaHash.MostrarTabla());
+        System.out.println(tablaHash.getPorcentaje()+"%");
+        System.out.println("valores en la tabla: "+tablaHash.getNumValores());
+        System.out.println("posicionees vacias: "+tablaHash.PosicionesVacias());
         //System.out.println(tablaHash.getNumM());
 
            

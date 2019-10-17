@@ -24,7 +24,7 @@ public class Tabla {
     
     */
     private Lista TablaHash[];
-    private int FuncionHash, numM;
+    private int FuncionHash, numM, numValores;
     private BigDecimal num_para_multi;// es el numero que se utiliza para hacer la funcion de multiplicacion, se colaca en este tipo de datos para que soporte gran cantidad de decimales . 
     private Requerimiento requerimiento;
     private String cadena;
@@ -32,9 +32,9 @@ public class Tabla {
     public Tabla(int FuncionHash,int TamTabla) {
         this.FuncionHash = FuncionHash; //segun este numero, la tabla hash usara la funcion de division o de multiplicaion. 
         this.requerimiento = new Requerimiento();//instanciamos el objeto requerimiento para obtener el valor m 
-         this.numM = requerimiento.RetornarM(TamTabla);// obtenemos el valor m que se utiliza en la ecuacion h(k) = k%m
+        this.numM = requerimiento.RetornarM(TamTabla);// obtenemos el valor m que se utiliza en la ecuacion h(k) = k%m
         this.TablaHash = new Lista[numM];// le damos una tamano al array que debe de ser numM. 
-        
+        this.numValores = 0;
         // se obtiene el numero asignado para la funcion de multiplicar. 
         float aux_num =  ((float) Math.sqrt(5)/2)+1;
         num_para_multi = new BigDecimal(aux_num);
@@ -64,6 +64,7 @@ public class Tabla {
                 if(!lista_auxiliar.Buscar(telefono)){ //si el numero no existe 
                     lista_auxiliar.InsertarFondo(nombre, correo, organizacion, comentario, telefono); // se insertar en la lista 
                     Insertar_Correctamente = true;
+                    numValores++;// se incrementa el numero de valores en la tabla 
                 }
                 
             }
@@ -72,6 +73,7 @@ public class Tabla {
             nueva_lista.InsertarFondo(nombre, correo, organizacion, comentario, telefono);// se inserta el nuevo numero 
             TablaHash[posicion] = nueva_lista;// se ingresa en la posicion correspondiente 
             Insertar_Correctamente = true;
+            numValores++;
         }
         return Insertar_Correctamente;
     }
@@ -142,7 +144,7 @@ public class Tabla {
         
         return existe;
     }
-    
+   //Eliminar valor  
   public boolean Eliminar(int telefono){
       boolean seElimino = false;
       Lista lista_aux;
@@ -157,6 +159,7 @@ public class Tabla {
                    TablaHash[posicion] = null;
                }
                seElimino = true;
+               numValores--;//se reduce el numero de valores en la tabla 
             }
             }
       }
@@ -171,14 +174,29 @@ public class Tabla {
                    TablaHash[posicion] = null;
                }
                seElimino = true;
+               numValores--;//se reduce el numero de valores en la tabla 
             }
             }
           
       }
       return seElimino;
   }
-  
-  
+//Posiciones vacias
+  public int PosicionesVacias(){
+      int contador = 0;
+      for(Lista lista:TablaHash){
+          if(lista == null){
+              contador++;
+          }
+      }
+      return contador;
+  }
+//Porcentaje de memoria usada 
+  public float getPorcentaje(){
+      float porcentaje = 0;
+      porcentaje = (numValores*(100))/numM;
+      return porcentaje;
+  }
     
 
     public int getFuncionHash() {
@@ -203,6 +221,14 @@ public class Tabla {
 
     public void setCadena(String cadena) {
         this.cadena = cadena;
+    }
+
+    public int getNumValores() {
+        return numValores;
+    }
+
+    public void setNumValores(int numValores) {
+        this.numValores = numValores;
     }
     
     
