@@ -23,9 +23,10 @@ public class TablaHash {
         System.out.println(lista.Mostrar());
         */
         
-        System.out.println(98 % 11);
-        Tabla tablaHash = new Tabla(1,10);
-        System.out.println(tablaHash.Insertar("", "", "", "", 13));
+        Tabla tablaHash = new Tabla(0,10);
+        
+      
+        
         System.out.println(tablaHash.Insertar("", "", "", "", 20));
         System.out.println(tablaHash.Insertar("", "", "", "", 78));
         System.out.println(tablaHash.Insertar("", "", "", "", 66669999));

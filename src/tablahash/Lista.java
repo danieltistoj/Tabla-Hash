@@ -90,7 +90,12 @@ public class Lista {
     private void MostrarValor(Nodo nodo_actual,int conta){
         if(nodo_actual!=null){
             if(conta == numValores){
+                if(numValores == 1){
+                      cadena += "[ "+nodo_actual.getTelefono()+" ]"+" --> null"; 
+                }
+                else{
                 cadena += nodo_actual.getTelefono()+" --> null";
+                }
             }
             else{
                 if(conta == 1){
