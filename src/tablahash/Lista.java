@@ -71,6 +71,11 @@ public class Lista {
         if(nodo_actual!=null){
             if(telefono == nodo_actual.getTelefono()){
                 existe = true;
+                cadena +="Nombre: "+nodo_actual.getNombre()+"\n"
+                         +"No. Telefono: "+nodo_actual.getTelefono()+"\n"
+                         +"Comentario: "+nodo_actual.getComentario()+"\n"
+                         +"Correo"+nodo_actual.getCorreo()+"\n"
+                         +"Organizacion: "+nodo_actual.getOrganizacion()+"\n";
             }
             else{
               existe = BuscarValor(telefono, nodo_actual.getSiguiente());
@@ -81,6 +86,7 @@ public class Lista {
     }
    
     public boolean Buscar(int telefono){
+        cadena = "";
         Nodo nodo_actual = tope;
         return BuscarValor(telefono, nodo_actual);
     }
@@ -141,6 +147,14 @@ public class Lista {
 
     public void setNumValores(int numValores) {
         this.numValores = numValores;
+    }
+
+    public String getCadena() {
+        return cadena;
+    }
+
+    public void setCadena(String cadena) {
+        this.cadena = cadena;
     }
     
     

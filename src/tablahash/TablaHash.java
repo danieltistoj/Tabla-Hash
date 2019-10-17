@@ -23,23 +23,22 @@ public class TablaHash {
         System.out.println(lista.Mostrar());
         */
         
-        Tabla tablaHash = new Tabla(0,10);
+        Tabla tablaHash = new Tabla(0,30);
+        System.out.println(tablaHash.Insertar("Juan","", "","", 55558888));
+        System.out.println(tablaHash.getCadena());
+        System.out.println(tablaHash.Insertar("Pedro","", "","", 54318043));
+        System.out.println(tablaHash.getCadena());
         
-      
         
-        System.out.println(tablaHash.Insertar("", "", "", "", 20));
-        System.out.println(tablaHash.Insertar("", "", "", "", 78));
-        System.out.println(tablaHash.Insertar("", "", "", "", 66669999));
-        tablaHash.Insertar("","", "","", 55558888);
-         tablaHash.Insertar("","", "","", 98);
-         tablaHash.Insertar("","", "","", 100);
-         tablaHash.Insertar("","", "","", 89);
-         tablaHash.Insertar("","", "","", 90);
-          tablaHash.Insertar("","", "","", 76);
-         tablaHash.Insertar("","", "","", 55558887);
        // tablaHash.Insertar("","", "","", 13);
-        tablaHash.MostrarTabla();
-        System.out.println(tablaHash.getNumM());
+        System.out.println(tablaHash.MostrarTabla());
+        System.out.println("Buscar: 55558888. "+tablaHash.Buscar(55558888));
+        System.out.println(tablaHash.getCadena());
+        System.out.println("Buscar: 54318043. "+tablaHash.Buscar(54318043));
+        System.out.println(tablaHash.getCadena());
+        System.out.println(tablaHash.Eliminar(54318043));
+        System.out.println(tablaHash.MostrarTabla());
+        //System.out.println(tablaHash.getNumM());
 
            
     }
