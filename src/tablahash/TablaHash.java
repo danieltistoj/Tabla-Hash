@@ -15,6 +15,8 @@ public class TablaHash {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+            Menu menu = new Menu();
+            menu.setVisible(true);
         /*
         Lista lista = new Lista();
         lista.InsertarFondo("", "","", "", 10);
@@ -23,6 +25,7 @@ public class TablaHash {
         System.out.println(lista.Mostrar());
         */
         
+        /*
         Tabla tablaHash = new Tabla(0,30);
         System.out.println(tablaHash.Insertar("Juan","", "","", 55558888));
         System.out.println(tablaHash.getCadena());
@@ -41,7 +44,7 @@ public class TablaHash {
         System.out.println("posicionees vacias: "+tablaHash.PosicionesVacias());
         //System.out.println(tablaHash.getNumM());
 
-           
+        */   
     }
     
 }
