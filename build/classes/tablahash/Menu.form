@@ -232,9 +232,6 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[954, 563]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -345,10 +342,8 @@
                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="boton_mostrar" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="boton_eliminar" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="boton_nuevo_contacto" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="boton_eliminar" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="boton_nuevo_contacto" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="101" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -369,6 +364,9 @@
               <Image iconType="3" name="/tablahash/mostrar_tabla1.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_mostrarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="boton_estadistica">
           <Properties>
@@ -402,6 +400,9 @@
               <Image iconType="3" name="/tablahash/buscar1.2.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_buscar_contactoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="boton_nuevo_contacto">
           <Properties>

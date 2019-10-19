@@ -220,11 +220,15 @@ public class Menu extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(954, 563));
 
         Panel.setPreferredSize(new java.awt.Dimension(954, 563));
 
         boton_mostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tablahash/mostrar_tabla1.png"))); // NOI18N
+        boton_mostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_mostrarActionPerformed(evt);
+            }
+        });
 
         boton_estadistica.setBackground(new java.awt.Color(255, 255, 255));
         boton_estadistica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tablahash/estadistica3.1.png"))); // NOI18N
@@ -243,6 +247,11 @@ public class Menu extends javax.swing.JFrame {
 
         boton_buscar_contacto.setBackground(new java.awt.Color(255, 255, 255));
         boton_buscar_contacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tablahash/buscar1.2.png"))); // NOI18N
+        boton_buscar_contacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_buscar_contactoActionPerformed(evt);
+            }
+        });
 
         boton_nuevo_contacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tablahash/nuevo_contacto1.png"))); // NOI18N
         boton_nuevo_contacto.addActionListener(new java.awt.event.ActionListener() {
@@ -327,9 +336,8 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(boton_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(boton_eliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(boton_nuevo_contacto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(boton_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(boton_nuevo_contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(boton_buscar_contacto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -399,6 +407,11 @@ public class Menu extends javax.swing.JFrame {
           
           if(inserto){//si el valor se inserto
               JOptionPane.showMessageDialog(rootPane,"El valor se inserto correctamente\n"+tablaHash.getCadena(),"Mensaje",JOptionPane.INFORMATION_MESSAGE);
+              txt_correo.setText("");
+              txt_telefono.setText("");
+              txt_nombre.setText("");
+              txt_orga.setText("");
+              area_comentario.setText("");
           }
           else{// si el valor no se inserto 
               JOptionPane.showMessageDialog(rootPane,"El valor ya existe","Error",JOptionPane.ERROR_MESSAGE);
@@ -423,7 +436,10 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_telefonoKeyTyped
 
     private void boton_estadisticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_estadisticaActionPerformed
-        // TODO add your handling code here:
+       JOptionPane.showMessageDialog(rootPane,"Porcentaje de memoria utilizada: "+tablaHash.getPorcentaje()+"%"+"\n"
+                                     + "Contactos Creados: "+tablaHash.getNumValores()+"\n"
+                                     +"Posiciones Vacias: "+tablaHash.PosicionesVacias()
+       );
     }//GEN-LAST:event_boton_estadisticaActionPerformed
 
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
@@ -451,6 +467,29 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_boton_eliminarActionPerformed
+
+    private void boton_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_mostrarActionPerformed
+       area_texto.setText(tablaHash.MostrarTabla());
+       
+    }//GEN-LAST:event_boton_mostrarActionPerformed
+
+    private void boton_buscar_contactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_buscar_contactoActionPerformed
+        String cadena_valor = JOptionPane.showInputDialog(null,"Ingrese el numero telefonico");
+        try {
+        int valor = Integer.valueOf(cadena_valor);
+        if(tablaHash.Buscar(valor)){
+            JOptionPane.showMessageDialog(rootPane,"El valor existe","Mensaje",JOptionPane.INFORMATION_MESSAGE);
+            area_texto.setText(tablaHash.getCadena());
+        }
+        else{
+            JOptionPane.showMessageDialog(rootPane,"El contacto no existe","Mensaje",JOptionPane.INFORMATION_MESSAGE);
+        }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo valores numericos","Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_boton_buscar_contactoActionPerformed
 
     /**
      * @param args the command line arguments
